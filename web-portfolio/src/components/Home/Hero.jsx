@@ -1,7 +1,9 @@
-import { NavLink } from 'react-router';
+import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import { NavLink } from 'react-router';
 import { TypeAnimation } from 'react-type-animation';
+import { AnimatedGradientText } from '@/components/magicui/animated-gradient-text';
+import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 
 const Hero = () => {
     return (
@@ -16,9 +18,24 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: 'easeOut' }}
                     >
-                        <h2 className="inline-block text-sm font-semibold text-indigo-600 tracking-wide uppercase bg-indigo-50/80 px-6 py-2 rounded-full shadow-sm hover:shadow-md transition-all duration-300">
-                            ยินดีต้อนรับสู่พอร์ตโฟลิโอของผม
-                        </h2>
+                        <div className="inline-flex group relative rounded-full px-4 py-1.5 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f]">
+                            <span
+                                className={cn(
+                                    'absolute inset-0 block h-full w-full animate-gradient rounded-[inherit] bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:300%_100%] p-[1px]'
+                                )}
+                                style={{
+                                    WebkitMask:
+                                        'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                                    WebkitMaskComposite: 'destination-out',
+                                    mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                                    maskComposite: 'subtract',
+                                    WebkitClipPath: 'padding-box',
+                                }}
+                            />
+                            <AnimatedGradientText className="text-sm font-semibold">
+                                ยินดีต้อนรับสู่พอร์ตโฟลิโอของผม
+                            </AnimatedGradientText>
+                        </div>
                     </motion.div>
 
                     <motion.div

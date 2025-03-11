@@ -53,6 +53,10 @@
     .animate-wave-gradient {
         animation: waveGradient 2s linear infinite;
     }
+
+    .animate-gradient {
+        animation: gradient var(--animation-duration) linear infinite;
+    }
 }
 
 @keyframes waveGradient {
@@ -61,6 +65,18 @@
     }
     100% {
         background-position: -200% 0;
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }
 
@@ -139,10 +155,10 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+    body {
+        @apply bg-background text-foreground;
     }
 }

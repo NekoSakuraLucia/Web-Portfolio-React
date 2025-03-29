@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Home, User, Contact, Book } from 'lucide-react';
 import { MenuList } from '@/components/navbar/MenuList';
@@ -6,6 +6,7 @@ import { NavSheet } from '@/components/navbar/NavSheet';
 
 const Navbar = () => {
     const pathname = usePathname();
+    const [scrollY, setScrollY] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
 
     const menuItems = [
@@ -19,8 +20,24 @@ const Navbar = () => {
         return pathname === href;
     };
 
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    });
+
     return (
-        <div className='fixed top-0 z-50 w-full py-5 transition-all duration-300 border-b'>
+        <div
+            className={`fixed top-0 z-50 w-full py-5 transition-all duration-300 border-b backdrop-blur-sm ${
+                scrollY ? 'bg-black/60' : ''
+            }`}
+        >
             <div className='container mx-auto px-3 md:px-0 max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl'>
                 <div className='flex items-center justify-between py-2'>
                     <div>

@@ -21,7 +21,7 @@ const NavItem = ({ to, children, isActive, isTablet }) => {
                     ) : (
                         <motion.span
                             layoutId='box'
-                            className='bg-zinc-100 dark:bg-zinc-900/50 border -z-1 absolute inset-0 rounded-xl'
+                            className='bg-zinc-50/5 border -z-1 absolute inset-0 rounded-xl'
                             initial={false}
                             transition={{
                                 type: 'spring',

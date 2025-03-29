@@ -64,7 +64,10 @@ const NavSheet = ({ isOpen, setIsOpen, ...props }) => {
                     )}
                 </motion.div>
             </SheetTrigger>
-            <SheetContent side='left'>
+            <SheetContent
+                side='left'
+                className='bg-transparent backdrop-blur-lg'
+            >
                 <SheetHeader className='border-b'>
                     <SheetTitle>Mobile Menu</SheetTitle>
                     <SheetDescription>
